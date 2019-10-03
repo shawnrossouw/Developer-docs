@@ -1,0 +1,62 @@
+                                                                   Git Commands 101
+
+
+git init (Start repo in current directory)
+
+ls -a (Shows all files in folders inc hidden).
+
+git status  (shows current branch, commits and untracked files)
+
+git add -A  (Adds all files to staging area).
+
+git commit -m "first  commit" (Creates project snapshot from files on staging area).
+
+git rm --cached filename (to remove file from staging area)
+
+git rm -f file.txt (Deletes the actual file)
+
+.gitignore (root file in the project that excludes files and folders)
+
+README.md (Readme file which provides project description)
+
+git checkout -b newbranchname (creates new branch)
+
+git checkout branchname (Switch to that branch)
+
+git merge branchname (merge all changes from local branch into current branch). 
+
+git merge branchname --no-ff -m ‘comment’ (Same as above but with all commits added).
+
+git log (show commit history)
+
+git branch -d branchname (to delete a branch)
+
+git branch -D branchname (to force delete branch)
+
+git branch -R (shows remote branches)
+
+git remote add origin git@github.com:username/repo.git (Add a remote repository).
+   
+git clone [url] (clone repository to local machine)
+
+git push -u origin branchname (Push to a  new remote branch).
+
+git push (push changes to a existing remote branch with same name).
+
+git fetch (fetches all branches of a project).
+
+git pull (pull latest changes from remote branch.)
+
+git fetch && git pull (chains two commands)
+
+git config --global user.name (Set username on git)
+
+git config --global user.email (Set email on git)
+
+
+
+
+
+
+
+
