@@ -1,0 +1,12 @@
+ Dinamically pulling in hubspot menu without any additional markup generated. 
+ 
+ <ul class="menu menu-maize-milling">
+            {% set menu = menu(module.maize_milling_menu_id)%}
+            {% for item in menu.children %}
+              <li class="menu-item">
+                <a href="{{item.url}}">
+                  {{item.label}}
+                </a>
+              </li>    
+            {% endfor %}
+          </ul>
