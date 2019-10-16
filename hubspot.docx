@@ -10,3 +10,29 @@
               </li>    
             {% endfor %}
           </ul>
+
+Dinamically ad multi level menu without additional generated markup
+
+{%- macro render_link_item(link,depth,looop)-%}
+             {%- if link != [] && link.label -%}
+              <li class="nav-top-{{depth}}">
+                <a href="{{link.url if link.url else '#'}}">{{link.label}}</a>
+                  {%- if link.children -%}
+                  <ul class="nav-dropdown">
+                    {% set depth = depth + 1 %}
+                    {%- for sublink in link.children -%}
+                    {{render_link_item(sublink,depth,loop.index)}}
+                    {%- endfor -%}
+                  </ul>
+                  {%- endif -%}
+                </li>
+                {%- endif -%}
+                {%- endmacro -%}
+    
+    {% set menu = menu(7193507826, "site_root").children %}
+
+      <ul class="header-nav">
+        {% for link in menu %}   
+        {{render_link_item(link,1,loop.index)}}
+        {% endfor %}
+      </ul>
