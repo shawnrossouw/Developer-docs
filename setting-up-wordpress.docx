@@ -1,0 +1,102 @@
+Set Up Wordpress
+
+
+Create new folder
+Get into folder with editor
+Clone docker-webpack from repo
+Make sure docker is not running
+When in folder and docker-webpack is cloned - docker-compose up -d
+Set up wordpress on localhost 8000
+Log in
+Activate theme
+Set up custom post types.
+
+Extract plugin and copy the folder to the project plugin folder.
+Create inc folder and sub folders custom-post-types and theme setup
+
+require “filepath/ggg.php”; - to pull in partials inside functions.php
+require_once “filepath/fff.php”;
+
+CUSTOM POST TYPE
+
+A post type you create. Built in post types is pages, posts and comments etc. 
+
+Register post type.
+
+register_post_type( 'mag_car',
+  array(
+    'labels' => array(
+      'name' => __( 'Cars' ),
+      'singular_name' => __( 'Car' ),
+      'menu_name' => 'Cars',
+      'edit_item' => 'Edit Car',
+      'view_item' => 'View Car',
+      'add_new' => 'Add Car',
+      'add_new_item' => 'Add New Car'
+    ),
+    'public' => true,
+    'has_archive' => true,
+    'supports' => array('title', 'editor', 'thumbnail'),
+    'rewrite'=> array( 'slug' => 'cars' )
+  )
+);
+
+ Edit the name with what post type you need.
+Place the above code in a function and give it a name like ‘setup’
+
+
+Set up hooks in wordpress
+
+Best time to set up hooks is after the theme has been setup
+To add a hook, run the function
+ add_action('init','setup');
+First string is to you initialize the hook, second is what you want to hook
+The above register post type has been placed in a ‘setup’ function
+
+
+Register taxonomy
+
+register_taxonomy(
+  'car_make',
+  'mag_car',
+  array(
+    'labels' => array(
+      'name' => __( 'Makes' ),
+      'add_new_item' => __('Add new Make')
+    ),
+    'rewrite' => array( 'slug' => 'car-make' ),
+    'hierarchical' => true
+  )
+);
+
+Inside theme folder
+
+-Archive-name_type.php (blog listing page, in wordpress sense more than one page, not old page)
+-Single-name_type.php (single version of blog listing page)
+
+To display taxonomy name on front end using “terms”
+
+<?php
+$terms = get_the_terms(get_the_ID(), 'car_make');
+foreach($terms as $term):?>
+<span>
+<? echo $term ->name ?>
+</span>
+<?php endforeach; ?>
+
+To get permalink
+<a href="<?php the_permalink(); ?>" class="">
+
+To get post thumbnail
+<?php echo get_the_post_thumbnail(); ?>
+
+ACF
+NB - Rules
+Post type is equal to the custom post type name. 
+On the front end
+<?php the_field(‘field name’); ?>
+Repeater fields: holds multiple values;
+<?php foreach(get_field('colors') as $color): ?>
+<span style="background: <?php echo $color['color'] ?>"></span>
+ <?php endforeach; ?>
+
