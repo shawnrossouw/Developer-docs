@@ -1,0 +1,106 @@
+What is Vue.js
+
+It is an front end library to build javascript applications.
+
+Directives
+
+Are used to interact with the dom. 
+
+Example of directive. 
+
+==================
+<div id=’root’>
+	<div v-if=”count === 1>
+	Green
+</div>
+	<div v-if-else=”count === 2>
+	Blue
+</div>
+<div v-else>
+	Orange
+</div>
+</div>
+===================
+new Vue = ({
+	el:”root”,
+	data: {
+	count: 2
+}
+})
+
+
+===================
+Custom components
+
+Vue has a component architecture, that lets you re use bits of code just most modern SPA’s.
+
+Vue.component(‘cat-list’, {
+ template: 
+<ul>
+	    <li>cat</li>
+</ul>
+})
+
+
+app = new Vue({
+	el : ‘#root’,
+	component : [
+‘cat-list’
+],
+})
+
+In DOM you call a component as follows: 
+< cat-list />
+
+
+<div id=’app’>
+   <h2>{{product}} is back in stock</h2> (pass in an expression with double curleys)
+</div>
+
+const app = new vue ({   (create new vue instance by using the vue function)
+el: ‘#app’ 	(Plug into the root element, called app),( el stand element)
+data: {
+  product: ‘Boots’;  (pass data inside an object)
+}
+})
+
+A Vue application consists of a root Vue instance created with new Vue, optionally organized into a tree of nested, reusable components.
+
+Installation
+
+npm install -g @vue/cli
+
+vue create hello-world
+
+ -g @vue/cli
+Vue multi page mode
+
+Build the app in multi-page mode. Each "page" should have a corresponding JavaScript entry file. The value should be an object where the key is the name of the entry, and the value is either:
+An object that specifies its entry, template, filename, title and chunks (all optional except entry). Any other properties added beside those will also be passed directly to html-webpack-plugin, allowing user to customize said plugin;
+Or a string specifying its entry.
+Create an optional file called vue.config.js.
+module.exports = {
+  pages: {
+    index: {
+      // entry for the page
+      entry: 'src/index/main.js',
+      // the source template
+      template: 'public/index.html',
+      // output as dist/index.html
+      filename: 'index.html',
+      // when using title option,
+      // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
+      title: 'Index Page',
+      // chunks to include on this page, by default includes
+      // extracted common chunks and vendor chunks.
+      chunks: ['chunk-vendors', 'chunk-common', 'index']
+    },
+    // when using the entry-only string format,
+    // template is inferred to be `public/subpage.html`
+    // and falls back to `public/index.html` if not found.
+    // Output filename is inferred to be `subpage.html`.
+    subpage: 'src/subpage/main.js'
+  }
+}
+
+
