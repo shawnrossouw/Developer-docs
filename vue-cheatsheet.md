@@ -1,6 +1,7 @@
 # Vue Cheatsheet
 
 This is a simplified cheatsheet along with some tips for people who often works with Vue.js.
+Thanks to <a href="https://github.com/murraco">Murraco</a> for his awesome cheatsheet. Original can be found here -> https://github.com/murraco/vue-cheatsheet
 
 
 ## Table of Contents
