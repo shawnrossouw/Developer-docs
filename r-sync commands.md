@@ -1,4 +1,4 @@
-# Command to copy files via the rsync transfer protocol from the terminal.
+## Command to copy files via the rsync transfer protocol from the terminal.
 
 ```bash
 rsync -r --progress /Users/shawn/websites/meyrbros-splash/* meyerk@meyerbros.co.za:/usr/home/meyerk/public_html
