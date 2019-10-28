@@ -1,4 +1,4 @@
-/devdocs/vpre/:user/:repo
+https://img.shields.io/badge/Dev-Docs-blue
 
 # Command to copy files via the rsync transfer protocol from the terminal.
 
