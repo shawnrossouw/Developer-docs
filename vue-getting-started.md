@@ -101,4 +101,49 @@ const app4 = new Vue({
   }
 });
 ```
+#### v-model
+```html
+<div id="app">
+  <h3>Type here:</h3>
+  <textarea v-model="message" class="message" rows="5" maxlength="72"></textarea><br>
+  <p class="booktext">{{ message }} </p>
+</div>
+```
+```js
+new Vue({
+  el: '#app',
+  data() {
+    return {
+      message: 'This is a good place to type things.'  
+    }
+  }
+});
+```
+Vue enables us to very easily set up two-way binding between the **textarea** and the **paragraph** with v-model.
 
+#### More Examples
+
+Conditional Rendering
+```js
+v-if, v-else-if, v-else
+```
+```js
+<g v-if="flourish === 'A'"></g>
+<g v-else-if="flourish === 'B'"></g>
+<g v-else></g>
+```
+
+Bind attributes dynamically, or pass props
+```js
+v-bind
+```
+```html
+<div :style="{ background: color }"></div>
+```
+Attaches an event listener to the element
+```js
+v-on
+```
+```html
+<button @click="fnName"></button>
+```
