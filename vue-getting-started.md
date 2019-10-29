@@ -56,3 +56,22 @@ Now from the command line start up the local develop environment by running the 
 yarn dev
 ```
 Open up the link in your browser, normally at port 8080, and voila!!
+
+### Basics
+
+Lets kick off with a very basic example:
+```html
+<div id="app">
+ {{ text }} Nice to meet Vue.
+</div>
+```
+-------------
+```js
+new Vue({
+ el: '#app',
+ data: {
+   text: 'Hello World!'
+ }
+});
+```
+Like the other frameworks we have some javascript inside html with moustache template and a variable. As you can see we are working straight up with html and not JSX. 
