@@ -57,7 +57,7 @@ yarn dev
 ```
 Open up the link in your browser, normally at port 8080, and voila!!
 
-### Basics
+## Basics
 
 Lets kick off with a very basic example:
 ```html
@@ -74,4 +74,31 @@ new Vue({
  }
 });
 ```
-Like the other frameworks we have some javascript inside html with moustache template and a variable. As you can see we are working straight up with html and not JSX. 
+Vue.js uses an HTML-based template syntax and the most basic form of data binding is text interpolation using the “Mustache” syntax.
+
+### Conditional Rendering and Directives
+#### Some examples
+##### v-for
+```html
+<div id="app">
+  <ul>
+    <li v-for="item in items">
+      {{ item }}
+    </li>
+  </ul>
+</div>
+```
+```js
+const app4 = new Vue({
+  el: '#app',
+  data: {
+    items: [
+      'thingie',
+      'another thingie',
+      'lots of stuff',
+      'yadda yadda'
+    ]
+  }
+});
+```
+
