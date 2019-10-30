@@ -147,3 +147,54 @@ v-on
 ```html
 <button @click="fnName"></button>
 ```
+Event Handlers
+We will still be using binding and listeners above to listen to DOM events, but we are going to create methods. In vue they are called methods. 
+```js
+new Vue({
+  el: '#app',
+  data() {
+   return {
+    counter: 0
+   }
+  },
+  methods: {
+   increment() {
+     this.counter++;
+   }
+  }
+});
+```
+```html
+<div id="app">
+  <p><button @click="increment">+</button> {{ counter }}</p>
+</div>
+```
+ Dynamic style bindings
+ ```js
+ new Vue({
+  el: '#app',
+  data() {
+    return {
+      counter: 0,
+      x: 0
+    }
+  },
+  methods: {
+    increment() {
+      this.counter++;
+   },
+   decrement() {
+     this.counter--;
+   },
+   xCoordinate(e) {
+     this.x = e.clientX;
+   }
+  }
+});
+```
+```html
+<div id="app" :style="{ backgroundColor: `hsl(${x}, 80%, 50%)` }" @mousemove="xCoordinate">
+  <p><button @click="increment">+</button> {{ counter }} <button @click="decrement">-</button></p>
+  <p>Pixels across: {{ x }}</p>
+</div>
+```
