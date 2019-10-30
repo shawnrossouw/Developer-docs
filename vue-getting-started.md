@@ -40,7 +40,7 @@ The Vue CLI will start the process of installing your app by creating a folder i
 Open the above folder in your favourite code editor. 
 
 #### Step 4
-Vue CLI uses PostCSS internally, but we need to add some bells and whistles.
+Vue CLI uses PostCSS internally, but we need to add some grunt and install these postcss plugins. There are more plugins available, but for now these will suffice. 
 ```bash
 yarn add --dev postcss-preset-env
 yarn add --dev postcss-nested
@@ -84,7 +84,7 @@ Open up the link in your browser, normally at port 8080, and voila!!
 Lets kick off with a very basic example:
 ```html
 <div id="app">
- {{ text }} Nice to meet Vue.
+ {{ text }} make some lemonade.
 </div>
 ```
 -------------
@@ -92,7 +92,7 @@ Lets kick off with a very basic example:
 new Vue({
  el: '#app',
  data: {
-   text: 'Hello World!'
+   text: 'When life gives you lemons, '
  }
 });
 ```
@@ -115,10 +115,10 @@ const app4 = new Vue({
   el: '#app',
   data: {
     items: [
-      'thingie',
-      'another thingie',
-      'lots of stuff',
-      'yadda yadda'
+      'Thingamabob',
+      'another thingamabob',
+      'some stuff',
+      'booh yah!'
     ]
   }
 });
@@ -128,7 +128,7 @@ const app4 = new Vue({
 <div id="app">
   <h3>Type here:</h3>
   <textarea v-model="message" class="message" rows="5" maxlength="72"></textarea><br>
-  <p class="booktext">{{ message }} </p>
+  <p class="text">{{ message }} </p>
 </div>
 ```
 ```js
@@ -221,3 +221,91 @@ new Vue({
 </div>
 ```
 We didn't even need to pass in the event to the @mousemove handler, Vue will automatically pass it for you to be available as a parameter for the method. 
+
+### Let's Continue
+#### Basic Routing without VueRouter
+
+The Vue documentation suggest to use the officially-supported <a href="https://github.com/vuejs/vue-router">Vue Router Libary</a> for most SPA's, but since this is a getting started guide, we will explore the most basic form of routing in Vue.js. 
+
+#### What is routing?
+
+Routing is a critical feature in a SPA which allows navigation between "pages" within the application, by dynamically rendering page-level components. 
+
+#### Setup
+Firstly, we create a **routes.js** file in the root of the app. 
+Then we can go ahead and create our "pages" also in the root of the app folder nl:
+* HomePage.vue
+* AboutPage.vue
+
+Inside the **routes.js** file we will import these two "pages" and,
+```js
+import HomePage from "./HomePage";
+import AboutPage from "./AboutPage";
+```
+declare the route to each "page" inside a variable
+```js
+const routes = {
+  "/": HomePage,
+  "/about": AboutPage
+};
+```
+And then locally registering the component using: 
+```js
+export default {}
+```
+Calling the data function and returning the path and filename of the current page in javascript as an object. 
+```js
+export default {
+  data() {
+    return { current: window.location.pathname };
+  }
+};
+```
+We then use a computed property for complex logic and create a function which returns the current path;
+```js
+export default {
+  data() {
+    return { current: window.location.pathname };
+  },
+  computed: {
+    routedComponent() {
+      return routes[this.current];
+    }
+  },
+};
+```
+Lasty, we call the render function, which will return a virtual DOM node;
+```js
+export default {
+  data() {
+    return { current: window.location.pathname };
+  },
+  computed: {
+    routedComponent() {
+      return routes[this.current];
+    }
+  },
+  render(createElement) {
+    return createElement(this.routedComponent);
+  }
+};
+```
+In our root app, normally App.vue we will import the newly created routes;
+```js
+<script>
+import routes from "./routes";
+
+export default {
+  components: {
+    routes
+  }
+};
+</script>
+```
+```html
+<template>
+  <div id="app">
+    <routes />
+  </div>
+</template>
+```
