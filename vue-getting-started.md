@@ -170,7 +170,7 @@ v-on
 <button @click="fnName"></button>
 ```
 Event Handlers
-We will still be using binding and listeners above to listen to DOM events, but we are going to create methods. In vue they are called methods. 
+We will still be using binding and listeners above to listen to DOM events, but we are going to create methods. A Vue method is a function associated with the Vue instance. Methods are defined inside the **methods** property. Methods are especially useful when you need to perform an action and you attach a **v-on** directive on an element to handle events.
 ```js
 new Vue({
   el: '#app',
@@ -305,6 +305,28 @@ export default {
 ```html
 <template>
   <div id="app">
+    <routes />
+  </div>
+</template>
+```
+Lasty we are going to create some navigation buttons to link between our "pages". For this we will need to create a method which will handle our click event right below our components;
+```js
+export default {
+  components: {
+    routes
+  },
+  methods: {
+    goTo(routes) {
+      window.location = routes;
+    }
+  }
+};
+```
+```html
+<template>
+  <div id="app">
+    <button @click="goTo('/')">Home</button>
+    <button @click="goTo('/about')">About</button>
     <routes />
   </div>
 </template>
