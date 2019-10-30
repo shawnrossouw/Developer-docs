@@ -220,3 +220,4 @@ new Vue({
   <p>Pixels across: {{ x }}</p>
 </div>
 ```
+We didn't even need to pass in the event to the @mousemove handler, Vue will automatically pass it for you to be available as a parameter for the method. 
