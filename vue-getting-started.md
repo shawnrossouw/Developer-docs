@@ -81,6 +81,34 @@ Open up the link in your browser, normally at port 8080, and voila!!
 
 ## Basics
 
+In your `.vue` file, you can place everything you need for your component. We can semantically create files that follow this logic:
+```vue
+<template>
+  <div>
+     <!-- Write your HTML with Vue in here -->	
+  </div>
+</template>
+
+<script>
+  export default {
+     // Write your Vue component logic here
+  }
+</script>
+
+<style scoped>
+  /* Write your styles for the component in here */
+</style>
+```
+The most basic way of importing/exporting components into a file;
+```vue
+import New from './components/New.vue';
+
+export default {
+  components: {
+    appNew: New
+  }
+}
+```
 Lets kick off with a very basic example:
 ```html
 <div id="app">
