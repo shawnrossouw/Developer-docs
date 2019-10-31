@@ -416,7 +416,7 @@ export default {
 };
 </script>
 ```
-Now lets build our increment and decrement functions as methods to show how the count integer can be updated with state.
+Now lets build our increment and decrement functions as methods to show how the count integer can be updated with state, as well as the actual buttons with html.
 ```js
 <script>
 import child from "./components/child";
@@ -441,3 +441,30 @@ export default {
 };
 </script>
 ```
+```html
+<template>
+  <div class="parent-component">
+    <h1>This is the Parent Component</h1>
+    <h3>
+      <button @click="decrement">-</button>
+      Adjust the state
+      <button @click="increment">+</button>
+    </h3>
+    <h2>
+      This is the app state
+      <span class="num">{{ count }}</span>
+    </h2>
+    <hr />
+    <h4>
+      <child count="1"></child>
+    </h4>
+    <p>This child uses a static integer as props</p>
+    <hr />
+    <h4>
+      <child :count="count"></child>
+    </h4>
+    <p>This is the same child that uses state as props</p>
+  </div>
+</template>
+```
+And thats it for now. Vue is a incredible lightweigth and powerfull js framework. Keep an eye out for future updates on more advanced topics. 
