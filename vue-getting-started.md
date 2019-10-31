@@ -40,15 +40,15 @@ The Vue CLI will start the process of installing your app by creating a folder i
 Open the above folder in your favourite code editor. 
 
 #### Step 4
-Vue CLI uses PostCSS internally, but we need to add some grunt and install these postcss plugins. There are more plugins available, but for now these will suffice. 
+Vue CLI uses PostCSS internally, but we need to add some grunt and install these postcss plugins. There are more plugins available, but for now these will suffice. From the terminal install these...
 ```bash
 yarn add --dev postcss-preset-env
 yarn add --dev postcss-nested
 ```
-In the package .json file, add these under postcss plugins
+In the package.json file, add these two lines under postcss plugins 
 ```json
 "postcss-nested": {},
-
+"postcss-preset-env": {},
 ```
 It should look like this when done.
 ```json
