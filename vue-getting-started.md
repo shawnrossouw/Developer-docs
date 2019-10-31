@@ -359,3 +359,85 @@ export default {
   </div>
 </template>
 ```
+## Vue State Management
+
+Vuex is vue’s own state management pattern and library. State is the data your components depend on. As your app grows each component might have its own version of state. If one component changes state and a distant relative uses the same state, that change needs to be communicated. Default way is to communicate events up and passing down props to share data. That can become overly complicated. VueX consolidates all state into one place. One location that contains the state of the whole application.
+
+Its implementation includes a store, custom mutators and it will reactively update any components that are reading data from the store.
+
+### Basic example of App state and props
+
+Lets create a new vue component called child.vue and pass it props in the form of a counter which we will update from the parent component.
+```html
+<template>
+  <div class="child-item">
+    <div class="num">{{ count }}</div>
+  </div>
+</template>
+```
+```js
+<script>
+export default {
+  props: {
+    count: {
+      type: Number,
+      required: true
+    }
+  }
+};
+</script>
+```
+In our parent component we import our child component,
+```js
+<script>
+import child from "./components/child";
+
+export default {
+  components: {
+    child
+  }
+};
+</script>
+```
+We can then pass the count prop we created in the child as data in the parent. 
+```js
+<script>
+import child from "./components/child";
+
+export default {
+  components: {
+    child
+  },
+  data() {
+    return {
+      count: 0
+    };
+  },
+};
+</script>
+```
+Now lets build our increment and decrement functions as methods to show how the count integer can be updated with state.
+```js
+<script>
+import child from "./components/child";
+
+export default {
+  components: {
+    child
+  },
+  data() {
+    return {
+      count: 0
+    };
+  },
+  methods: {
+    increment() {
+      this.count++;
+    },
+    decrement() {
+      this.count--;
+    }
+  }
+};
+</script>
+```
