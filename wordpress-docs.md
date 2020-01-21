@@ -174,6 +174,18 @@ Responsive Images
 <?php responsive_img(get_post_thumbnail_id(), 'large'); ?>
 
 
+Displaying a custom parent and child(sub category) taxonomy of a custom post type:
+
+foreach( get_terms( 'products-category', array( 'hide_empty' => false, 'parent' => 0 ) ) as $parent_term ) {
+  // display top level term name
+  echo $parent_term->name . '<br>';
+  foreach( get_terms( 'products-category', array( 'hide_empty' => false, 'parent' => $parent_term->term_id ) ) as $child_term ) {
+    // display name of all childs of the parent term
+    echo $child_term->name . '<br>';
+  }
+}
+
+
 
 
 
