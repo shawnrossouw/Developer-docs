@@ -1,4 +1,4 @@
-PLUGIN INSTALL
+### PLUGIN INSTALL
 
 https://github.com/wp-premium/advanced-custom-fields-pro
 
@@ -8,12 +8,13 @@ Create inc folder and sub folders custom-post-types and theme setup
 require “filepath/ggg.php”; - to pull in partials inside functions.php
 require_once “filepath/fff.php”;
 
-CUSTOM POST TYPE
+### CUSTOM POST TYPE
 
 A post type you create. Built in post types is pages, posts and comments etc. 
 
-Register post type.
+#### Register post type.
 
+```php
 register_post_type( 'mag_car',
   array(
     'labels' => array(
@@ -31,9 +32,11 @@ register_post_type( 'mag_car',
     'rewrite'=> array( 'slug' => 'cars' )
   )
 );
+```
 
-Register taxonomy
+#### Register taxonomy
 
+```php
 register_taxonomy(
   'car_make',
   'mag_car',
@@ -46,6 +49,7 @@ register_taxonomy(
     'hierarchical' => true
   )
 );
+```
 
 Inside theme folder
 
@@ -61,6 +65,7 @@ Refresh permalinks by saving it again
 
 To display taxonomy name on front end using “terms”
 
+```php
 <?php
 $terms = get_the_terms(get_the_ID(), 'car_make');
 foreach($terms as $term):?>
@@ -68,35 +73,49 @@ foreach($terms as $term):?>
 <? echo $term ->name ?>
 </span>
 <?php endforeach; ?>
+```
 
 Or
 
+```php
 <?php foreach(get_terms(array(‘taxonomy’ => ‘project_type’))as $term): ?>
 <?php echo &term =>name; ?>
-
+```
 
 To get permalink
+```php
 <a href="<?php the_permalink(); ?>" class="">
+```
 
 To get post thumbnail
+```php
 <?php echo get_the_post_thumbnail(); ?>
+```
 
-ACF
-NB - Rules
+### ACF
+
+#### NB - Rules
 Post type is equal to the custom post type name. 
 On the front end
+```php
 <?php the_field(‘field name’); ?>
+```
 Repeater fields: holds multiple values;
+```php
 <?php foreach(get_field('colors') as $color): ?>
 <span style="background: <?php echo $color['color'] ?>"></span>
  <?php endforeach; ?>
-Hooks
+ ```
+
+### Hooks
+
 NB!! Good time to initiate hooks is after theme-setup inside a function. Ex post types
 
 To create post type that doesn’t live inside the theme folder. 
 In wp-content folder create mu-plugins. Create new file post-type.php
 Inside the file create function like below: 
 
+```php
 <?php
 function setup(){
    register_post_type( 'events',
@@ -119,7 +138,7 @@ function setup(){
 }
 
 add_action('init','setup');
-
+```
 
 To Activate Advanced Custom Fields
 Copy ACF from other previous projects and paste it into the plugins folder of current project.
@@ -131,18 +150,23 @@ Activate plugin
 Options-page = global settings/content
 Global options page via ACF
 
+```php
 acf_add_options_page(array(
  'page_title'=>'Site Settings',
  'menu_title'=>'General',
 ));
+```
 
 Example pulling acf field from backend with field in options page
+```php
 <h1><?php the_field('field_name', 'option'); ?></h1>
-
-SEARCH PAGE RESULTS
+```
+### SEARCH PAGE RESULTS
+```html
 <main class="posts">
  <div class="posts-inner">
-
+```
+```php
 <?php if(have_posts()): ?>
  <?php while(have_posts()): the_post(); ?>
        <!--POST BLOCK-->
@@ -169,13 +193,15 @@ SEARCH PAGE RESULTS
 <?php endif; ?>
  </div>
 </main>
+```
 
-Responsive Images
+### Responsive Images
+```php
 <?php responsive_img(get_post_thumbnail_id(), 'large'); ?>
+```
 
-
-Displaying a custom parent and child(sub category) taxonomy of a custom post type:
-
+### Displaying a custom parent and child(sub category) taxonomy of a custom post type:
+```php
 foreach( get_terms( 'products-category', array( 'hide_empty' => false, 'parent' => 0 ) ) as $parent_term ) {
   // display top level term name
   echo $parent_term->name . '<br>';
@@ -184,12 +210,9 @@ foreach( get_terms( 'products-category', array( 'hide_empty' => false, 'parent' 
     echo $child_term->name . '<br>';
   }
 }
+```
 
-
-
-
-
-WHEN DEPLOYING TO A LIVE SITE…
+### WHEN DEPLOYING TO A LIVE SITE…
 
 Do not send the plugins to the new site with migrate DB pro.. Only send the database and the media files. Make sure the live site already has the same plugins in the backend.
 
