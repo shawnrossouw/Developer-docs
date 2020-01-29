@@ -88,6 +88,30 @@ The value on a radio type is the key to make the radio buttons switch focus.
 
 ```
 
+Default values is normally used when a user updates info on a cms. Text area value is set in the body of the text area. 
+The default value of a checkbox is unchecked. To change that set the attribute checked="checked" or just checked. The long hand method can be used normally in react or php etc: 
+
+```html
+<input checked="{{salary_in ? "checked" : ""}}"
+```
+
+#### Form submission
+
+Three ways to submit a basic html form. 
+1. <button>
+2. <input type="submit"
+3. Enter on the keyboard. 
+          
+If you want to clear a form, you can add a ` <button type="reset"></button> `
+
+##### Form handling with JS
+Stay away from buttons and dont put click events on buttons. 
+```js
+form.addEventlistener('submit', function(e) {
+  e.preventDefault();
+  AJAX
+  });
+```
 
 #### Github API Example.
 
