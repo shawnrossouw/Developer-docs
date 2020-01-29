@@ -58,11 +58,15 @@ Using POST instead of GET above the browser will still redirect to the about pag
 
 #### Form Inputs
 
-Basic type inputs. Needs two required attributes i.e name="" and type="". Value is recorded by the user and can be used a default value. Placeholder is the ghost value that populates the field. The default state of a field is blurred. The focus state is when the user clicks in the field. Text area which has formatting is a WYSISWYG text area. Text area without formatting is a plain text area. Label tags is mainly used for screen readers. If label and inputs is used correctly, the input field will be focussed when the user clicks on the label. 
+Basic type inputs. Needs two required attributes i.e name="" and type="". Value is recorded by the user and can be used a default value. Placeholder is the ghost value that populates the field and should be used to instruct the user how to use the field. The default state of a field is blurred. The focus state is when the user clicks in the field. 
+
+Text area which has formatting is a WYSISWYG text area. Text area without formatting is a plain text area. Label tags is mainly used for screen readers. If label and inputs is used correctly, the input field will be focussed when the user clicks on the label. 
+
+The value on a radio type is the key to make the radio buttons switch focus. 
 
 ```html
 <form>
-  <input type="text/password/email/submit" name="First Name" value="default value"  />
+  <input type="text/password/email/radio/checkbox/submit" name="First Name" value="default value"  />
 
   <textarea name="message"> 
 
@@ -74,6 +78,11 @@ Basic type inputs. Needs two required attributes i.e name="" and type="". Value 
   
   <label for="name of input"> First Name
     <input name="" />
+  </label>
+  
+  <label for="gender">
+    <input type="radio" name="gender" value="male" />
+    <input type="radio" name="gender" value="female" />
   </label>
 </form>
 
