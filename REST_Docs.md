@@ -27,7 +27,7 @@ Is similar to POST but convention is to save an attachment.
 
 Append information/data on the url via a "Key value pair". Example:
 `
-http://www.mysite.com/contact?key=value
+http://www.mysite.com/contact.html?key=value
 ` 
 
 "&" to add another value.
@@ -39,7 +39,25 @@ name = shawn
 make = honda
 ```
 
+In Javascript you would write a function that would GET_the_url_parameters and return the value. 
 
+In php you would GET the url parameter like this: 
+```php
+$_GET['project']
+```
+#### Forms
+
+In html we can use the form as an example. The default method for form is GET. If a form does not have a action set it will append the form data as a url parameter and the reload the page. In the example below the form submit button would go to the about page and append the form data as url parameter. 
+```html
+<form method="GET" action="about.html">
+  
+</form>
+```
+
+Using POST instead of GET above the browser will still redirect to the about page but the data wont be appended as a url parameter but as an object. Its more secure as the data cant be intercepted. 
+
+
+#### Github API Example.
 
 Example HTML
 ```html
