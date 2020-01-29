@@ -1,5 +1,46 @@
 ### REST API docs
 
+### Introduction
+
+Browser communicates with the server via http/https/ftp/ssh etc requests. Browser creates a GET request via http to the server. 
+
+Other requests include:
+- POST
+- DELETE
+- PUT
+
+#### GET
+To fetch/retrieve data from the server. 
+On a website to retrieve the actual page. Like clicking a link to another page.
+
+#### POST
+To send data to the server to store, for example in a database. 
+To send data through use of a form, login or ajax.
+
+#### DELETE
+Tp delete a record on a server or to delete a file. 
+
+#### PUT
+Is similar to POST but convention is to save an attachment. 
+
+#### URL Parameters
+
+Append information/data on the url via a "Key value pair". Example:
+`
+http://www.mysite.com/contact?key=value
+` 
+
+"&" to add another value.
+
+Example
+```
+Key = Value
+name = shawn
+make = honda
+```
+
+
+
 Example HTML
 ```html
 <a href="https://github.com/shawnrossouw" class="card">
