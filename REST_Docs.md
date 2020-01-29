@@ -108,7 +108,7 @@ If you want to clear a form, you can add a ` <button type="reset"></button> `
 Stay away from buttons and dont put click events on buttons. 
 ```js
 form.addEventlistener('submit', function(e) {
-  e.preventDefault();
+  e.preventDefault(); //if you use ajax then this cause you dont want a page reload as that what submit does. 
   AJAX
   });
 ```
