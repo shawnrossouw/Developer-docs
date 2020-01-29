@@ -54,7 +54,30 @@ In html we can use the form as an example. The default method for form is GET. I
 </form>
 ```
 
-Using POST instead of GET above the browser will still redirect to the about page but the data wont be appended as a url parameter but as an object. Its more secure as the data cant be intercepted. 
+Using POST instead of GET above the browser will still redirect to the about page but the data wont be appended as a url parameter but as an POST object/form payload. Its more secure as the data cant be intercepted. 
+
+#### Form Inputs
+
+Basic type inputs. Needs two required attributes i.e name="" and type="". Value is recorded by the user and can be used a default value. Placeholder is the ghost value that populates the field. The default state of a field is blurred. The focus state is when the user clicks in the field. Text area which has formatting is a WYSISWYG text area. Text area without formatting is a plain text area. Label tags is mainly used for screen readers. If label and inputs is used correctly, the input field will be focussed when the user clicks on the label. 
+
+```html
+<form>
+  <input type="text/password/email/submit" name="First Name" value="default value"  />
+
+  <textarea name="message"> 
+
+  </textarea>
+
+  <select name="Key">
+    <option value="Value">
+  </select>
+  
+  <label for="name of input"> First Name
+    <input name="" />
+  </label>
+</form>
+
+```
 
 
 #### Github API Example.
