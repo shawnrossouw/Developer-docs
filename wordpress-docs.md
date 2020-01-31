@@ -106,6 +106,16 @@ Repeater fields: holds multiple values;
 <span style="background: <?php echo $color['color'] ?>"></span>
  <?php endforeach; ?>
  ```
+Repeater fields on a options page:
+```php
+<?php if( have_rows('repeater', 'option') ): ?>
+    <ul>
+    <?php while( have_rows('repeater', 'option') ): the_row(); ?>
+        <li><?php the_sub_field('title'); ?></li>
+    <?php endwhile; ?>
+    </ul>
+<?php endif; ?>
+```
 
 ### Hooks
 
