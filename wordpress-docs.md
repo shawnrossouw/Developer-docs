@@ -1,3 +1,35 @@
+### Wordpress Loop
+
+```php
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
+
+
+<?php endwhile; endif; ?>
+```
+
+### Custom Post Type Loop
+```php
+<?php have_rows($packages); ?>
+<?php if( have_rows('packages') ):
+ while ( have_rows('packages') ) : the_row();?>
+ ```
+ 
+ Display content from custom post type - using name
+
+ ```php
+ <img src="<?php the_sub_field('image'); ?>" alt="alt">
+
+<?php the_sub_field('title'); ?>
+
+<?php the_sub_field('price'); ?>
+```
+Some cases require using this loop inside the WP Loop.
+```php
+<?php endwhile;?>
+<?php endif; ?>
+
+```
+
 ### PLUGIN INSTALL
 
 https://github.com/wp-premium/advanced-custom-fields-pro
