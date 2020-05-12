@@ -53,7 +53,24 @@ register_post_type( 'mag_car',
   )
 );
 ```
-
+#### Custom post type Query posts
+```php
+<?php $query = new WP_Query(array(
+        'post_type' => 'mag_client',
+        'posts_per_page' => 6,
+        'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1
+      )); ?>
+```
+Then loop through post types;
+```php
+<?php if ($query->have_posts()): ?>
+<?php while ($query->have_posts()): $query->the_post(); ?>
+        
+<?php endwhile; ?>        
+<?php else: ?>
+   <p>There are no posts available</p>
+<?php endif; ?>
+```
 Edit the name with what post type you need.
 Place the above code in a function and give it a name like ‘setup’
 
