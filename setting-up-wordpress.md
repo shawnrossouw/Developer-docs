@@ -56,7 +56,7 @@ register_post_type( 'mag_car',
 #### Custom post type Query posts
 ```php
 <?php $query = new WP_Query(array(
-        'post_type' => 'mag_client',
+        'post_type' => 'mag_car',
         'posts_per_page' => 6,
         'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1
       )); ?>
