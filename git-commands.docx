@@ -55,7 +55,9 @@ git config --global user.email (Set email on git)
 
 git branch --set-upstream-to=origin/<branch> develop
 
-
+Remove files from index if in VC, 
+example:
+git rm -r --cached plugins/
 
 
 
