@@ -59,6 +59,8 @@ Remove files from index if in VC,
 example:
 git rm -r --cached plugins/
 
+To add untracked files again
 
+git add -f file/ or folder/
 
 
