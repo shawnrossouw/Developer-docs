@@ -16,7 +16,8 @@
 16. Create a .github in project root directory. 
 17. Create a workflows folder inside that folder. 
 18. Create a deploy.yml file and paste the following code:
-`
+
+```
 name: Deploy
 
 on:
@@ -51,5 +52,5 @@ jobs:
           remote_host: ${{secrets.DEPLOY_URL}}
           remote_user: ${{secrets.DEPLOY_USER}}
           remote_key: ${{ secrets.DEPLOY_KEY }}
-          
-          `
+```
+  
