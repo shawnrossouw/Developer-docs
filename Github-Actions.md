@@ -6,7 +6,7 @@
 4. That will create a public and a private key. 
 5. Create a blank file named "authorized_keys" i.e `touch authorized_keys'
 6. View the public key and copy it i.e `cat id_rsa.pub`
-7. Open authorized_keys file i.e `nano authorized_keys` and paste the public inside. Use `cntrl O` to write and enter to confirm, then `cntrl X` to exit. `cat authorized_keys` to see if it saved the key. 
+7. Open authorized_keys file i.e `nano authorized_keys` and paste the public key inside. Use `cntrl O` to write and enter to confirm, then `cntrl X` to exit. `cat authorized_keys` to see if it saved the key. 
 8. Copy the private key with ---begin--- and ---end--- part i.e `cat id_rsa`.
 9. Go to github repo -> settings and create the secret fields. 
 10. DEPLOY_KEY -> Paste the private ssh key here. 
