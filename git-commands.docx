@@ -63,4 +63,9 @@ To add untracked files again
 
 git add -f file/ or folder/
 
-
+Git merge write out file
+- press "i" (i for insert)
+- write your merge message
+- press "esc" (escape)
+- write ":wq" (write & quit)
+- then press enter
