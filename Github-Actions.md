@@ -4,7 +4,7 @@
 2. `ls -a` to see if there is an .ssh folder. 
 3. If no .ssh folder, then run the following command: `ssh-keygen`. Enter through all the options.
 4. That will create a public and a private key. 
-5. Create a blank file named "authorized_keys" i.e `touch authorized_keys'
+5. Create a blank file named "authorized_keys" i.e `touch authorized_keys`
 6. View the public key and copy it i.e `cat id_rsa.pub`
 7. Open authorized_keys file i.e `nano authorized_keys` and paste the public key inside. Use `cntrl O` to write and enter to confirm, then `cntrl X` to exit. `cat authorized_keys` to see if it saved the key. 
 8. Copy the private key with ---begin--- and ---end--- part i.e `cat id_rsa`.
