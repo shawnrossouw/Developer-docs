@@ -1,7 +1,7 @@
 ## Creating a github action for dockerised wordpress deployment to remote server. 
 
 1. SSH into the remote server with terminal.
-2. `ls -a` to see if there is an .shh folder. 
+2. `ls -a` to see if there is an .ssh folder. 
 3. If no .shh folder, then run the following command: `ssh-keygen`. Enter through all the options.
 4. That will create a public and a private key. 
 5. Create a blank file named "authorized_keys" i.e `touch authorized_keys'
