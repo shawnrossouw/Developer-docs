@@ -2,7 +2,7 @@
 
 1. SSH into the remote server with terminal.
 2. `ls -a` to see if there is an .ssh folder. 
-3. If no .shh folder, then run the following command: `ssh-keygen`. Enter through all the options.
+3. If no .ssh folder, then run the following command: `ssh-keygen`. Enter through all the options.
 4. That will create a public and a private key. 
 5. Create a blank file named "authorized_keys" i.e `touch authorized_keys'
 6. View the public key and copy it i.e `cat id_rsa.pub`
