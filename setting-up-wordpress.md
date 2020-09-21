@@ -1,5 +1,127 @@
 ### Setting Up Wordpress
 
+### Step 1.
+Login at https://login.konsoleh.co.za
+Username: lastpass 
+PW: lastpass
+
+### Step 2:
+Click on green ‘new order’ button
+Step 3 
+Click on web hosting
+Click on basic package
+South Africa
+Next
+
+### Step 4
+Create a sub domain
+Give domain name
+(avula.dev.magneticcreative) needs to be this extension
+Next
+
+### Step 5
+If price is 0 - Everything is all good
+Accept Ts and Cs
+Place Order
+
+### Step 6
+Click SSH in the left panel
+Look for the domain name and click on it
+Continue
+(wait for domain to propegate)
+Enable
+
+### Step 7 - Add FTP user to the domain
+Hetzner Dashboard
+Manage Servers - drop down
+Click on the server
+Select the domain name that was created (avula.dev.mag)
+Click on manage services in the left pane
+FTP users
+Reset password to - 12Magnetic34
+Update
+
+### Step 8
+Copy username
+
+### Step 9
+Open terminal
+Type in “ ‘ssh’ username@domain_url”
+(ssh avulazkhli@avula2019.dev.mag.co.za)
+Enter
+Yes
+Enter
+Type password: 12Magnetic34
+
+### Step 10 - inside the box (username has changed)
+Cd public_html
+Enter
+Ls
+Rm -rf index.html
+It is now empty
+
+### Step 11 - IF THERE IS A REPO ONLINE
+Open Bitbucket
+Check if there is an SSH KEY active in terminal - cat ~/.ssh/id_rsa.pub
+Enter
+If no such file, generate ssh key using ssh-keygen -t rsa -C “emailaddress@example.com”
+Enter till its done
+Run the cat command again--  cat ~/.ssh/id_rsa.pub
+Copy SSH KEY
+
+### Step 12
+If you are not the admin of that repo, send your SSH key to the admin of that repo
+
+### Step 13
+TO DOWNLOAD A FRESH COPY OF WORDPRESS TO TARGET DOMAIN
+In the public_html folder - run the following commands
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+php wp-cli.phar core download
+
+### Step 14 - Database
+From KonsoleH dashboard
+Go to the domain
+Manage my sql on left pane
+Add
+Add
+Keep wordpress database details open
+In new tab, go to the actual domain that you created
+Install Wordpress with database details
+Switch between konsoleh and wordpress installation to check details
+Database -> Database Name
+Login -> Username
+Full Password -> Password
+Server -> Database Host
+Keep prefix
+Submit
+Create title,username,password
+Install
+
+### Step 15 - Get the theme on new wordpress (to deploy a site) skip this step for later
+From public_html - run command:  cd wp-content/themes
+Ls
+Git clone “project-repo-url” magnetic
+Cd magnetic
+Ls
+Remove all except theme folder --- rm -rf folder/ folder/ folder/ file file file (everything you want to remove seperated by a space)
+Move contents of theme to current directory ---  mv theme/* .
+
+### IF YOU HAVE TO FTP FILES (NOT CONVENTIONAL METHOD)
+Continue after step 10…
+Use FTP client (filezilla or cyberduck)
+In cyberduck..
+Click connect to server icon (earth plus icon)
+Select FTP from dropdown (default)
+Copy domain username from hetzner - (vallezheaq)
+Paste into cyberduck username field
+Do the same with the domain password
+In the server field - enter the domain you have created (no prefixes)
+Connect
+Continue
+Enter public html
+NB -Make sure the folder you are FTPing is zipped.
+Make sure to compress the root files - Go into the folder and zip the files within - not the folder
+Drag the newly created zip file into the public html folder in cyberduck
 
 #### Create new project folder.
 
