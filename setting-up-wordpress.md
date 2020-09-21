@@ -75,8 +75,12 @@ If you are not the admin of that repo, send your SSH key to the admin of that re
 ### Step 13
 TO DOWNLOAD A FRESH COPY OF WORDPRESS TO TARGET DOMAIN
 In the public_html folder - run the following commands
+`
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+`
+`
 php wp-cli.phar core download
+`
 
 ### Step 14 - Database
 From KonsoleH dashboard
