@@ -81,7 +81,7 @@ Creating the archive file is part one. Part two consists of untarring the archiv
 ```bash
 tar -xvf my-archive.tar -C /home/myfolder/
 ```
-### 5. Zip
+### 6. Zip
 
 Creates a .zip archive of the file/folder and adds the files recursively. 
 ```bash
