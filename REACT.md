@@ -1,4 +1,4 @@
-## React Snippets
+## React
 ### React Hooks
 
 Hooks are available only for function-based components, so they can't be used inside a class component.
