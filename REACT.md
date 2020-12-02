@@ -131,7 +131,7 @@ useEffect(() => {
   ```
 The second argument of `useEffect` function is referred to as the "dependency array". When the variable included inside the array didn't change, the function passed as the first argument won't be executed.
 
-#### The componentWillUnmount effect
+#### The `componentWillUnmount` effect
 
 If you have code that needs to run when the component will be removed from the DOM tree, you need to specify a `componentWillUnmount` effect by writing a return statement into the first argument function. Here is an example:
 ```js
@@ -141,7 +141,7 @@ useEffect(() => {
     return () => { console.log("componentWillUnmount effect"); }
   }, [name] );
   ```
-  #### Running useEffect only once
+  #### Running `useEffect` only once
   
   To run `useEffect` hook only once like `componentDidMount` function, you can pass an empty array into the second argument:
   ```js
