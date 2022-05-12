@@ -69,3 +69,6 @@ Git merge write out file
 - press "esc" (escape)
 - write ":wq" (write & quit)
 - then press enter
+
+git lg - git log
+grbi main - git rebase interactive against main
