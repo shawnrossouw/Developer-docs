@@ -71,4 +71,5 @@ Git merge write out file
 - then press enter
 
 git lg - git log
+git rebase main - then to continue the, add specific changes and rebase "grbc" short for git rebase --continue
 grbi main - git rebase interactive against main
