@@ -73,3 +73,4 @@ Git merge write out file
 git lg - git log
 git rebase main - then to continue the, add specific changes and rebase "grbc" short for git rebase --continue
 grbi main - git rebase interactive against main
+Will need to force push changes done by rebase "git push -u origin branchname -f"
